@@ -1,0 +1,49 @@
+import starwars.*
+
+test "anakin inicialmente tiene poder " {
+
+	assert.equals(10400,anakin.poder())
+
+}
+
+
+test "cando muere un jedi, anakin pierde poder " {
+
+	ladoLuminoso.seMuereUnJedi()
+	assert.equals(10300,anakin.poder())
+
+}
+
+test "darth vader es mas poderoso " {
+	anakin.corromperse()
+	const darthVader = anakin
+	assert.equals(10500,darthVader.poder())
+
+}
+
+test "anakin entrena" {
+	
+	anakin.entrenar(10)
+	assert.equals(10600,anakin.poder())
+
+}
+
+
+test "darth vader entrena" {
+	anakin.corromperse()
+	const darthVader = anakin
+	darthVader.entrenar(10)
+	assert.equals(110500,anakin.poder())
+
+}
+
+
+test "el monstruo se entrena" {
+	ladoOscuro.entrenamiento(monstruo,5)
+	assert.that(monstruo.estaEntrenado())
+}
+
+test "el monstruo no se entrena lu sufis" {
+	ladoOscuro.entrenamiento(monstruo,1)
+	assert.notThat(monstruo.estaEntrenado())
+}
